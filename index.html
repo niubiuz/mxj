@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta http-equiv="pragma" content="no-cache"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title>秒先机-秒先机系列</title>
+<!--jquery js文件-->
+<script src="js/jquery/jquery-1.8.2.min.js" type="text/javascript"></script>
+<!-- phonegap js文件-->
+<script src="js/phonegap/cordova.js" type="text/javascript"></script>
+<!-- dojo js文件-->
+<script type="text/javascript" src="js/dojo1.8.1-0/dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','IconMenu','SimpleDialog','ToolBarButton','TabBar','Button','TextBox','RadioButton','TextArea','Carousel','PageIndicator']"></script>
+<script type="text/javascript" src="js/dojo1.8.1-0/dojo/dojo.js" data-dojo-config="async: true, parseOnLoad: true, mblAlwaysHideAddressBar: true"></script>
+<!--listitem箭头样式-->
+<link href="js/dojo1.8.1-0/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleRedCross.css" rel="stylesheet"/>
+<!--domButton箭头样式-->
+<link href="js/dojo1.8.1-0/dojox/mobile/themes/common/domButtons.css" rel="stylesheet"/>
+<!--Badge样式-->
+<link href="js/dojo1.8.1-0/dojox/mobile/themes/common/domButtons/DomButtonRedBadge.css" rel="stylesheet"/>
+<!-- 转场样式 -->
+<link href="js/dojo1.8.1-0/dojox/mobile/themes/common/transitions.css" rel="stylesheet"/>
+<!-- 应用风格 -->
+<link href="css/foryou.css" rel="stylesheet" type="text/css"/>
+<!--应用js文件-->
+<script src="js/config.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
+<script src="js/build.js" type="text/javascript"></script>
+<script src="js/plugin/plugin.js" type="text/javascript"></script>
+<script src="js/app.js" type="text/javascript"></script>
+<script src="js/weixin/action.js"></script>
+<script src="js/weixin/weixin.js"></script>
+</head>
+<body style="visibility:hidden;" >
+	<!-- 启动画面 begin-->       
+	<div id="preloader">
+	    <div id="preloaderContent">
+	        <img src="images/loading.png" style="width:320px"><br>
+	         <div id="loading_content"></div>    
+	    </div>
+	</div>
+	<!--启动画面 end-->
+	<!--首页 begin-->
+	<div id="index" data-dojo-type="dojox.mobile.ScrollableView"  data-dojo-props='selected:true' style="background: #FFFFFF">
+		
+		<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"top"' class="myhead" id="myhead">
+			<span style="margin-left: 5px;">美文推荐系列</span>
+		</h1>
+		<ul data-dojo-type="dojox.mobile.RoundRectList"	data-dojo-props='shadow:false' style="width: 95%;margin:  0 auto;margin-top:10px;border: none;">
+			
+				<span style="display:block; font-size:30px;color:#ff6600;font-weight: normal;"  id="apptitle">我的推荐</span>
+			</li>
+		 </ul>
+			<script>
+				//$("#index_h2").html(index_title);
+			</script>
+		<h2><font size="4px" color="red">美文推荐</font><h2>
+		<div>
+		<ul data-dojo-type="dojox.mobile.IconMenu" data-dojo-props='cols:2' data-dojo-props='shadow:false'>
+			<li class="mblIconMenuItem2"
+				data-dojo-type="dojox.mobile.IconMenuItem"
+				data-dojo-props='moveTo:"view_new_notice",transition:"none",onClick:gotoNoticeList'><span
+				class="title">华夏文库</span><span id="noticecount" class="point"></span>
+			</li>
+			<li class="mblIconMenuItem4"
+				data-dojo-type="dojox.mobile.IconMenuItem"
+				data-dojo-props='moveTo:"view_new_notice_zkms",transition:"none",onClick:gotoZkmsList'><span
+				class="title">西方经典</span><span id="noticecountzkms" class="point"></span>
+			</li>
+			<li class="mblIconMenuItem1"
+				data-dojo-type="dojox.mobile.IconMenuItem"
+				data-dojo-props='moveTo:"#",transition:"none"'><span
+				class="title">每人福利</span><span id="noticecount" class="point">请期待</span>
+			</li>
+			<li class="mblIconMenuItem1"
+				data-dojo-type="dojox.mobile.IconMenuItem"
+				data-dojo-props='moveTo:"#",transition:"none"'><span
+				class="title">免费资源</span><span id="noticecount" class="point">请期待</span>
+			</li>
+		</ul>
+		
+		<h2><font size="4px" color="red">精神粮食（数据准备中）</font><h2>
+		
+		<ul data-dojo-type="dojox.mobile.IconMenu" data-dojo-props='cols:2' data-dojo-props='shadow:false'>
+			<li class="mblIconMenuItem4"
+				data-dojo-type="dojox.mobile.IconMenuItem"
+				data-dojo-props='moveTo:"#",transition:"none"'><span
+				class="title">经典书文</span><span id="noticecount" class="point">请期待</span>
+			</li>
+			<li class="mblIconMenuItem4"
+				data-dojo-type="dojox.mobile.IconMenuItem"
+				data-dojo-props='moveTo:"#",transition:"none"'><span
+				class="title">经典影片</span><span id="noticecountzkms" class="point">请期待</span>
+			</li>
+			<li class="mblIconMenuItem4"
+				data-dojo-type="dojox.mobile.IconMenuItem"
+				data-dojo-props='moveTo:"#",transition:"none"'><span
+				class="title">触及灵魂</span><span id="noticecount" class="point">请期待</span>
+			</li>
+			<li class="mblIconMenuItem4"
+				data-dojo-type="dojox.mobile.IconMenuItem"
+				data-dojo-props='moveTo:"#",transition:"none"'><span
+				class="title">以书会友</span><span id="noticecount" class="point">请期待</span>
+			</li>
+			</ul>
+		
+		
+		</div>
+			<div class="c"></div>
+			<ul data-dojo-type="dojox.mobile.RoundRectList"	data-dojo-props='shadow:false' style="width: 95%;margin:  0 auto;margin-top:10px;border:none">
+				
+					<span class="t_c f13" id="infomore"></span>
+				
+			</ul>
+			
+			
+       <div style="height:10px"></div>
+		
+		<h1 data-dojo-type="dojox.mobile.TabBar" data-dojo-props='fixed:"bottom"'  class="footer">
+			<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='fixed:"bottom"'></li>
+			<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='fixed:"bottom", onClick:gotoMore'>选项</li>
+	   </h1>
+	</div>
+	<!--首页 end-->
+	
+	
+
+	<!-- 免费活动 begin -->
+	<div id="view_new_notice" data-dojo-type="dojox.mobile.View" style="background: #fff" >
+		<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"返回", moveTo:"index", fixed:"top",transition:"none"' class="myhead">
+		   <span id="span_title_top">华夏文库</span>
+		   
+		   <span class="bottom" id="span_title_bottom">(按发布时间排序)</span>
+		</h1>
+		<ul data-dojo-type="dojox.mobile.TabBar" data-dojo-props='barType:"segmentedControl", fixed:"top"' style="background: #fff">
+			<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='moveTo:"data_notice_new",selected:true,transition:"none",onClick:gotoNoticeList'>我的推荐</li>
+			<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='moveTo:"data_notice_hot",transition:"none",onClick:initHotNotice' >热门文选</li>
+		</ul>
+		<!--最新发布 begin-->
+		<div id="data_notice_new" data-dojo-type="dojox.mobile.ScrollableView" >
+			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"top"' class="showinfo"  id="showinfo"></h1> 
+	  		<ul id="notice_ul" data-dojo-type="dojox.mobile.RoundRectList"  data-dojo-props="shadow:false" class="noticelist">
+	  			<p class="m10 b f14 ">数据正在加载，请稍候</p>
+	 		 </ul>
+		</div>
+		<!--最新发布 end-->
+		<!--近期热点 begin-->
+		<div id="data_notice_hot" data-dojo-type="dojox.mobile.ScrollableView" >
+		   <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"top"' class="showinfo"  id="showinfo_notice_hot"></h1> 
+	 		 <ul id="notice_hot_ul" data-dojo-type="dojox.mobile.RoundRectList"  data-dojo-props="shadow:false" class="noticelist">
+	  		<p class="m10 b f14 ">数据正在加载，请稍候</p>
+	 		 </ul>
+		</div>
+		<!--近期热点 end-->
+	</div>
+	<!-- 免费活动 ｅｎｄ -->
+	
+	<!--申报通知 内容 begin-->
+	<div id="data_notice_content" data-dojo-type="dojox.mobile.ScrollableView" style="background: #ffffff;">
+		<h1 data-dojo-type="dojox.mobile.Heading" class="myhead" data-dojo-props='back:"返回",  fixed:"top", moveTo:"view_new_notice",transition:"none"'>华夏文库</h1>
+	    <div data-dojo-type="dojox.mobile.ContentPane" data-dojo-props='shadow:false' id="notice_content" class="noticecontent">
+	    </div>	
+	</div>
+	<!--申报通知 内容 end-->
+	
+	
+	<!-- Zkms begin -->
+	<div id="view_new_notice_zkms" data-dojo-type="dojox.mobile.View" style="background: #fff" >
+		<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"返回", moveTo:"index", fixed:"top",transition:"none"' class="myhead">
+		   <span id="span_title_top_zkms">西方经典</span>
+		  
+		   <span class="bottom" id="span_title_bottom_zkms">(按发布时间排序)</span>
+		</h1>
+		<ul data-dojo-type="dojox.mobile.TabBar" data-dojo-props='barType:"segmentedControl", fixed:"top"' style="background: #fff">
+			<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='moveTo:"data_notice_new_zkms",selected:true,transition:"none",onClick:gotoZkmsList'>我的推荐</li>
+			<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='moveTo:"data_notice_hot_zkms",transition:"none",onClick:initHotZkms' >热门文选</li>
+		</ul>
+		<!--最新发布 begin-->
+		<div id="data_notice_new_zkms" data-dojo-type="dojox.mobile.ScrollableView" >
+			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"top"' class="showinfo"  id="showinfo_zkms"></h1> 
+	  		<ul id="notice_ul_zkms" data-dojo-type="dojox.mobile.RoundRectList"  data-dojo-props="shadow:false" class="noticelist">
+	  			<p class="m10 b f14 ">数据正在加载，请稍候</p>
+	 		 </ul>
+		</div>
+		<!--最新发布 end-->
+		<!--近期热点 begin-->
+		<div id="data_notice_hot_zkms" data-dojo-type="dojox.mobile.ScrollableView" >
+		   <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"top"' class="showinfo"  id="showinfo_notice_hot_zkms"></h1> 
+	 		 <ul id="notice_hot_ul_zkms" data-dojo-type="dojox.mobile.RoundRectList"  data-dojo-props="shadow:false" class="noticelist">
+	  		<p class="m10 b f14 ">数据正在加载，请稍候</p>
+	 		 </ul>
+		</div>
+		<!--近期热点 end-->
+	</div>
+	<!-- 最新资讯 ｅｎｄ -->
+	
+	<!--申报通知 内容 begin-->
+	<div id="data_notice_content_zkms" data-dojo-type="dojox.mobile.ScrollableView" style="background: #ffffff;">
+		<h1 data-dojo-type="dojox.mobile.Heading" class="myhead" data-dojo-props='back:"返回",  fixed:"top", moveTo:"view_new_notice_zkms",transition:"none"'>西方经典</h1>
+	    <div data-dojo-type="dojox.mobile.ContentPane" data-dojo-props='shadow:false' id="notice_content_zkms" class="noticecontent">
+	    </div>	
+	</div>
+	<!--Zkms 内容 end-->
+	
+	
+	
+	<!--退出程序弹出 begin-->
+	<div id="dlg_exit" data-dojo-type="dojox.mobile.SimpleDialog">
+		<div class="mblSimpleDialogTitle">确定退出应用？</div>
+		<input id="exitpara" type="checkbox"  style="margin:20px 0px;"/>下次退出时不再提示
+		<button data-dojo-type="dojox.mobile.Button" class="mblSimpleDialogButton2l " onClick="doExit()" >确定</button>
+		<button data-dojo-type="dojox.mobile.Button" class="mblSimpleDialogButton2r " onClick="hide('dlg_exit')" >取消</button>
+	</div>
+	<!--退出程序弹出 end-->
+	
+	<!--更多 begin-->
+	<div id="more" data-dojo-type="dojox.mobile.ScrollableView" >
+	    <h1 data-dojo-type="dojox.mobile.Heading" class="myhead" data-dojo-props='fixed:"top"'>
+	        <span data-dojo-type="dojox.mobile.ToolBarButton" arrow="left" data-dojo-props='moveTo:"index", transitionDir:-1,transition:"none",onClick:hideWeChatAction'>返回</span>
+	        选项
+	    </h1>
+	  <ul data-dojo-type="dojox.mobile.RoundRectList" data-dojo-props='shadow:false' >
+	    <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props='moveTo:"＃"' onclick="openWeChatSheet()" id="wechat">觉得好用就分享一下
+	    	<div  data-dojo-type="dojox.mobile.Badge" class="mblDomButtonRedBadge new" data-dojo-props='value:"new"' style="float:right;font-size:18px;"></div></li>
+	    <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props='moveTo:"view_feedback_index",onClick:gotoViewFeedbackIndex'>有问题就反馈给我们
+	    	<div  data-dojo-type="dojox.mobile.Badge" class="mblDomButtonRedBadge new" data-dojo-props='value:"new"' style="float:right;font-size:18px;"></div></li>
+	    <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props='moveTo:"#"' onClick='gotoUserInfo()'> <span id="usertext"></span> </li>
+	    <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props='moveTo:"#"' onClick= "checkVersion('check')"> 检查更新</li>
+	      
+	  </ul>
+	</div>
+	<!--更多 end-->
+	
+	<!--用户注册 begin-->
+	<div id="regist" data-dojo-type="dojox.mobile.ScrollableView">
+		<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"返回", moveTo:"login", fixed:"top",transition:"none"' class="myhead">用户注册
+	    	<span data-dojo-type="dojox.mobile.ToolBarButton" class="mblColorBlue"  class="fr" style="float:right;" data-dojo-props='moveTo:"login", transition:"none"'>登录</span>
+	    </h1>
+	  <div data-dojo-type="dojox.mobile.RoundRect" data-dojo-props='shadow:false'>
+	      <table style="width:95%">
+	        <tr style="height:50px;">
+	          <td><span >昵称</span></td>
+	          <td class="t_c"><input id="regist_nickname" style="height: 30px;font-size: 16px;" type="text" data-dojo-type="dojox.mobile.TextBox" class="userinfo" selectOnClick="true" placeHolder="昵称"></td>
+	        </tr>
+	        <tr style="height:50px;">
+	          <td><span >账号</span></td>
+	          <td class="t_c"><input id="regist_email" style="height: 30px;font-size: 16px;" type="text" data-dojo-type="dojox.mobile.TextBox" class="userinfo" selectOnClick="true" placeHolder="邮箱"></td>
+	        </tr>
+	        <tr style="height:50px;">
+	          <td><span >密码</span></td>
+	          <td class="t_c"><input id="regist_password" style="height: 30px;font-size: 16px;" type="password" data-dojo-type="dojox.mobile.TextBox" class="userinfo" maxLength="16" selectOnClick="true" placeHolder="密码"></td>
+	        </tr>
+	        <tr style="height:50px;">
+	          <td ><span  >确认密码</span></td>
+	          <td class="t_c"><input id="regist_repassword" style="height: 30px;font-size: 16px;" type="password" data-dojo-type="dojox.mobile.TextBox" class="userinfo" maxLength="16" selectOnClick="true" placeHolder="确认密码"></td>
+	        </tr >
+	        <tr style="height:50px;">
+	          <td  colspan="2" class="t_c">
+	          
+	              <!--   <div data-dojo-type="dojox.mobile.ToorbarButton"  data-dojo-props='moveTo:"#",transition:"none",onClick:regist' style="width:120px;font-size: 18px;">
+	               注 册
+	               </div> -->
+	              <button data-dojo-type="dojox.mobile.Button"  onClick="regist()" style="width:120px;font-size: 18px;height:35px;line-height:35px;">注 册</button> </td>
+	        </tr>
+	      </table>
+	  </div>
+	</div>
+	<!--用户注册 end-->
+	
+	<!--用户登录 begin-->
+	<div id="login" data-dojo-type="dojox.mobile.ScrollableView">
+		<input type="hidden" id="login_hidden_para" value="more"/>
+		<h1 data-dojo-type="dojox.mobile.Heading" class="myhead" data-dojo-props='fixed:"top"'>
+			<span data-dojo-type="dojox.mobile.ToolBarButton" arrow="left" data-dojo-props='moveTo:"#", transitionDir:-1,transition:"none"' onClick="goBackFromLogin()">返回</span>
+		用户登录
+		 <span data-dojo-type="dojox.mobile.ToolBarButton" class="mblColorBlue" class="fr" style="float:right;"  data-dojo-props='moveTo:"regist", transition:"none"'>注册</span> 
+		</h1>
+	  <div data-dojo-type="dojox.mobile.RoundRect" data-dojo-props='shadow:false' >
+	    <table style="width:95%">
+	      <tr style="height:50px;">
+	        <td><span>账号</span></td>
+	        <td class="t_c"><input id="login_email"  style="height: 30px;font-size: 16px;" type="text" data-dojo-type="dojox.mobile.TextBox"  class="userinfo"  selectOnClick="true" placeHolder="邮箱"></td>
+	      </tr>
+	      <tr style="height:50px;">
+	        <td><span>密码</span></td>
+	        <td class="t_c"><input id="login_password" style="height: 30px;font-size: 16px;" type="password" data-dojo-type="dojox.mobile.TextBox" class="userinfo"  maxLength="16" selectOnClick="true" placeHolder="密码"></td>
+	      </tr>
+	      <tr>
+	        <td  colspan="2" class="t_c">
+	       <button data-dojo-type="dojox.mobile.Button"  onClick="login()" style="width:120px;font-size: 18px;height:35px;line-height:35px;margin: 10px;">登录</button> 
+	        </td>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+	<!--用户登录 end-->
+	<!--注册后完善用户信息 begin-->
+	<div id="completeuserinfo" data-dojo-type="dojox.mobile.ScrollableView">
+	  <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"top"' class="myhead">
+	    <span data-dojo-type="dojox.mobile.ToolBarButton" data-dojo-props='moveTo:"userinfo", transition:"none"'>跳过</span>
+	    完善资料
+	    <span data-dojo-type="dojox.mobile.ToolBarButton" class="mblColorBlue" class="fr" style="float:right;"  data-dojo-props='moveTo:"userinfo", onClick:completeUserInfo'>完成</span>
+	  </h1>
+	  <div data-dojo-type="dojox.mobile.RoundRect" data-dojo-props='shadow:false'>
+	    <table style="width:100%">
+	      <tr style="height:40px;">
+	        <td><span class="b">性别</span></td>
+	        <td class="t_c"><input type="radio" id="rb1" data-dojo-type="dojox.mobile.RadioButton" name="sex" value="1" >
+	          <label for="rb1">男</label>
+	          <input type="radio" id="rb2" data-dojo-type="dojox.mobile.RadioButton" name="sex" value="0" checked>
+	          <label for="rb2">女</label>
+	        </td>
+	      </tr>
+	      <tr style="height:40px;">
+	        <input type="hidden" id="area_province" />
+	        <input type="hidden" id="area_city" />
+	        <td><span class="bold">地区</span></td>
+	        <td class="t_c" ><li  data-dojo-type="dojox.mobile.ListItem"  style="border-bottom:none" data-dojo-props='moveTo:"view_province", transition:"none"' onClick='gotoProvince()'> <span id="selectarea">选择地区</span></li>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+	<!--注册后完善用户信息 end-->
+	<!--选择省直辖市页面 begin-->
+	<div id="view_province" data-dojo-type="dojox.mobile.ScrollableView">
+	  <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"返回", moveTo:"completeuserinfo", fixed:"top",transition:"none"' class="myhead">选择省/直辖市</h1>
+	  <ul  id="data_province" data-dojo-type="dojox.mobile.RoundRectList" data-dojo-props='select:"single"' class="datalist">
+	  </ul>
+	</div>
+	<!--选择省直辖市页面 end-->
+	<!--选择城市页面 begin-->
+	<div id="view_city" data-dojo-type="dojox.mobile.ScrollableView">
+	  <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"返回", moveTo:"view_province", fixed:"top"' class="myhead">选择城市</h1>
+	  <ul  id="data_city" data-dojo-type="dojox.mobile.RoundRectList" data-dojo-props='select:"single"' class="datalist">
+	  </ul>
+	</div>
+	<!--选择城市页面 end-->
+	<!--用户信息 begin-->
+	<div id="userinfo" data-dojo-type="dojox.mobile.ScrollableView">
+	  <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"返回", moveTo:"more", fixed:"top",transition:"none"' class="myhead"> 我的信息
+	    <span data-dojo-type="dojox.mobile.ToolBarButton" class="mblColorBlue" class="fr" style="float:right;"  data-dojo-props='moveTo:"login", onClick:logout'>退出登录</span>
+	  </h1>
+	  <div data-dojo-type="dojox.mobile.RoundRect" data-dojo-props='shadow:false'>
+	    <table style="width:100%">
+	      <tr style="height:40px;">
+	        <td><span>昵称:</span></td>
+	        <td class="t_l"><span id="nickname"></span></td>
+	      </tr>
+	      <tr style="height:40px;">
+	        <td><span>性别:</span></td>
+	        <td class="t_l"><span id="sex"></span></td>
+	      </tr>
+	      <tr style="height:40px;">
+	        <td><span>账号:</span></td>
+	        <td class="t_l"><span id="username"></span></td>
+	      </tr>
+	      <tr style="height:40px;">
+	        <td><span >所在地区:</span></td>
+	        <td class="t_l"><span id="location"></span></td>
+	      </tr>
+	      <tr style="height:40px;display: none;">
+	        <td><span >注册时间:</span></td>
+	        <td class="t_l"><span id="ctime"></span></td>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+	<!--用户信息 end-->
+	
+	
+	<!-- 反馈页面首页 beging -->
+	<div id="view_feedback_index" data-dojo-type="dojox.mobile.ScrollableView" class="feedback_list" style="background: #fff">
+	    <h1 data-dojo-type="dojox.mobile.Heading"    data-dojo-props='back:"返回", moveTo:"more",transition:"none",fixed:"top",transition:"none"' class="myhead">意见和建议</h1>
+	    <h2 data-dojo-type="dojox.mobile.RoundRectCategory">
+	        <span data-dojo-type="dojox.mobile.ToolBarButton" data-dojo-props='icon:"images/add.png",moveTo:"feedback_post",transition:"none",onClick:gotoAddFeedbackPage' style="float:right;border:none;background:#ffffff"></span>
+	        我的反馈
+	        <div style="float: none; font-size: 11px; display: block; white-space: normal; width: 80%;">说说您遇见的问题，我们将不断改进</div>
+	    </h2>
+	    <div class="line mt10"></div>
+	    <ul data-dojo-type="dojox.mobile.RoundRectList"   data-dojo-props='shadow:false' class="nb" id="feedback_index_ul">
+	        <p>正在加载，请稍候...</p>
+	    </ul>
+     </div>
+	<!-- 反馈页面 end -->
+
+	
+    <!--反馈信息发送留言 begin-->
+    <div id="feedback_post"   data-dojo-type="dojox.mobile.ScrollableView" style="background: #fff">
+		<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"取消", moveTo:"view_feedback_index", fixed:"top",transition:"none"' class="myhead">
+		反馈内容
+		</h1>
+        <h2 data-dojo-type="dojox.mobile.RoundRectCategory">说说您的意见和建议吧！</h2>
+        <div class="line mt10"></div>
+        <div data-dojo-type="dojox.mobile.RoundRect"  data-dojo-props='shadow:false' class="nb">
+        	<form onSubmit="return doAddFeedback();">
+				<textarea data-dojo-type="dojox.mobile.TextArea"   id="feedback_content" 
+	    		style="min-height: 250px; width: 100%; font-size: 20px;"placeHolder="请输入您的意见和建议">
+	    		</textarea>
+	    		<input type="hidden" id="pid" value="0">
+	    		<input type="submit" data-dojo-type="dojox.mobile.Button"    style="height: 45px;; width: 102%; font-size: 22px;" value="提 交">
+    		</form>
+		</div>
+    </div>
+    <!--反馈信息发送留言 end-->
+    <!--反馈信息内容 begin-->
+    <div id="view_feedback_content"   data-dojo-type="dojox.mobile.ScrollableView" style="background: #fff">
+        <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"返回", moveTo:"view_feedback_index",transition:"none",fixed:"top"' class="myhead">反馈信息</h1>
+        <h2 data-dojo-type="dojox.mobile.RoundRectCategory">
+           我的反馈信息
+        </h2>
+        <div class="line mt10"></div>
+        <ul data-dojo-type="dojox.mobile.RoundRectList"     data-dojo-props='shadow:false,variableHeight:true' id="feedback_content_ul"  style="border: none;" class="feedback_content">
+        </ul>
+        <!-- <div style="text-align:center;"><button id="btn_feedback_more" data-dojo-type="dojox.mobile.Button"  onClick="gotoAddFeedbackPage('content')" class="loadmore" style="display:none; "/>如果觉得不满意点击我</button></div> -->
+	</div>
+     <!--反馈信息内容 end-->
+
+	<!-- 信息提示弹窗 begin-->
+	<div id="dlg_progress" data-dojo-type="dojox.mobile.SimpleDialog"	style="width: 135px; height: 106px;text-align: center;">
+		<div class="mblSimpleDialogText" id="progress_indicator_container" style="margin-left: 13px;"></div>
+		<div class="mblSimpleDialogText" id="showmessage" style="width: 118px; text-align: center;font-size:16px;line-height:16px;"></div>
+	</div>
+	<!-- 信息提示弹窗  end-->
+	
+	
+	
+	
+	<!-- 登录失败后信息提示弹窗 begin-->
+	<div id="dlg_failed" data-dojo-type="dojox.mobile.SimpleDialog"	style="width: 160px; height: 106px;text-align: center;">
+		<div class="mblSimpleDialogText" id="progress_indicator_container_failed" style="margin-left: 30px;"></div>
+		<div class="mblSimpleDialogText" id="showmessage_failed" style="width: 150px; font-size:18px;"></div>
+	</div>
+	<!-- 登录失败后信息提示弹窗  end-->
+    <!-- 分享微信 Sheet -->
+	<div id="weChatSheet" data-dojo-type="dojox.mobile.Opener" style="width:100%;dispaly:none">
+		<button id="0" data-dojo-type="dojox.mobile.Button" onclick="sendWeChat(this.id)" >分享给微信好友</button>
+		<button id="1" data-dojo-type="dojox.mobile.Button" onclick="sendWeChat(this.id)" >分享到微信朋友圈</button>
+		<button id="cancel" style="margin-top: 15px;" data-dojo-type="dojox.mobile.Button" onclick="sendWeChat(this.id)" >取消</button>
+	</div>
+	<!--  分享微信 Sheet -->
+</body>
+</html>
